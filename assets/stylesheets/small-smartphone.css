@@ -42,6 +42,7 @@
     border-radius: 2px;
     padding: 5px;
     font-size: medium;
+    -webkit-appearance: none;
   }
   .btn:hover,
   .btn:focus,
