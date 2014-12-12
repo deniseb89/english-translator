@@ -43,6 +43,13 @@
     padding: 5px;
     font-size: medium;
   }
+  .btn:hover,
+  .btn:focus,
+  .btn:active{
+    color: #FFFACD;
+    background-color: #4682B4;
+    border-color: #2e6da4;
+  }
   #words {
     padding-left: 0;
     list-style: none;
