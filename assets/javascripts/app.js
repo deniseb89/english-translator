@@ -41,6 +41,7 @@ $(function() {
     wordList.fetch().done(function(data){
       wordListView = new WordListView({ collection: wordList });
       wordListView.render();
+      $("#word").val(""); 
     });
-  })
+  });
 });
