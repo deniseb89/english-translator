@@ -33,6 +33,28 @@ var WordListView = Backbone.View.extend({
   }
 });
 
+// VALIDATION
+function flash() {
+  var $word = $("#word").val();
+  var $error = $('.error');
+  $error
+    .text($word + " is not in our database. Please try another word.")
+    .hide()
+    .slideToggle("slow", function(){
+      setTimeout(function(){
+          $error.slideToggle("slow", function(){
+            $error.remove();
+          });
+      }, 3000);
+    });
+  }
+
+function invalid() {
+  $("#word").css('border-color', 'red')
+            .effect("shake");
+  flash();
+}
+
 $(function() {
   $('#form1').on('submit', function(e) {
     e.preventDefault();
@@ -41,6 +63,9 @@ $(function() {
     wordList.fetch().done(function(data){
       wordListView = new WordListView({ collection: wordList });
       wordListView.render();
+      if (wordListView.collection.length == 0) {
+        invalid();
+      };
       $("#word").val(""); 
     });
   });
