@@ -96,9 +96,69 @@ li {
 }
 
 .error {
-  /*position: fixed;*/
   width: 70%;
-  /*height: 10px;*/
-/*  background-color: chartreuse;
-*/  margin: 0 auto;
+  margin: 0 auto;
 }
+
+/*About Page*/
+.about {
+  width: 80%;
+  margin: auto;
+}
+
+.about-heading {
+  text-align: center;
+}
+
+.about-text {
+  font-size: 20px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.ul-details {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.ul-details li {
+  text-align: left;
+}
+
+.about-link {
+  text-decoration: none;
+  color: peru;
+}
+
+.about-link:hover {
+  color: peachpuff;
+}
+
+.about-nav a img {
+  width: 42px;
+  height: 42px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.about-nav a img:hover,
+.home-nav a img:hover {
+  background-color: snow;
+  border-radius: 5px;
+}
+
+.home-nav {
+  text-align: right;
+}
+
+.home-nav a img {
+  width: 42px;
+  height: 42px;
+}
+
+
