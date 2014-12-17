@@ -12,6 +12,10 @@ body {
        url('../fonts/HelsinkiXXL/HelsinkiXXL-Thin.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
 
+#about {
+  display: none;
+}
+
 .intro {
   width: 60%;
   margin: auto;
@@ -121,6 +125,8 @@ h3 {
 .ul-details {
   list-style-type: none;
   padding-left: 0;
+  width: 80%;
+  margin: auto;
 }
 
 .ul-details li {
@@ -136,7 +142,7 @@ h3 {
   color: peachpuff;
 }
 
-.about-nav a img {
+.about-nav img {
   width: 42px;
   height: 42px;
   -webkit-transform: rotate(180deg);
@@ -144,10 +150,11 @@ h3 {
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
+  cursor: pointer;
 }
 
-.about-nav a img:hover,
-.home-nav a img:hover {
+.about-nav img:hover,
+.home-nav img:hover {
   background-color: snow;
   border-radius: 5px;
 }
@@ -156,9 +163,14 @@ h3 {
   text-align: right;
 }
 
-.home-nav a img {
+.home-nav img {
   width: 42px;
   height: 42px;
+  cursor: pointer;
+}
+
+img { 
+  transition: all .5s ease;
 }
 
 

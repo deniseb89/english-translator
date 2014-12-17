@@ -40,12 +40,48 @@ function invalid() {
 }
 
 // AUTOCOMPLETE
-$("#word").autocomplete({
-  appendTo: "#form1",
-  delay: 500,
-  minLength: 3,
-  source: "http://english-english-api.herokuapp.com/api/words"
-})
+// $("#word").autocomplete({
+//   appendTo: "#form1",
+//   delay: 500,
+//   minLength: 3,
+//   source: "http://english-english-api.herokuapp.com/api/words"
+// })
+
+// DANCING ARROWS
+$('.page2').on('mouseover', function() {
+  $(this).css({
+    'transform' : 'rotate(30deg)'
+  })
+});
+$('.page2').on('mouseout', function() {
+  $(this).css({
+    'transform' : 'rotate(0deg)'
+  })
+});
+
+$('.page1').on('mouseover', function() {
+  $(this).css({
+    'transform' : 'rotate(220deg)'
+  })
+});
+$('.page1').on('mouseout', function() {
+  $(this).css({
+    'transform' : 'rotate(180deg)'
+  })
+});
+
+// SINGLE-PAGE FUNCTIONALITY
+$('.page2').on('click', function() {
+  $('#home').toggle("slide", {direction: "right"}, function() {
+      $('#about').toggle("slide", {direction: "left"}, 1000);
+  }, 1000);
+});
+
+$('.page1').on('click', function() {
+  $('#about').toggle("slide", {direction: "left"}, function() {
+      $('#home').toggle("slide", {direction: "right"}, 1000);
+  }, 1000);
+});
 
 // ON PAGE LOAD
 $(function(){
@@ -53,4 +89,4 @@ $(function(){
   $('.btn').on("click", function() {
     $(".intro").slideUp(750);
     });
-  })
+});

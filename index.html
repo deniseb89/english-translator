@@ -30,24 +30,52 @@
       <%= jamaican %> (Jamaican)
     </li><br>
   </script>
-  <nav class="home-nav">
-    <a href="about.html">
-      <img src="assets/images/arrow_pencil_left.png" alt="About">
-    </a>
-  </nav>
-  <div class="intro">
-    <h1 class="intro-msg">
-      English-English Translator. 
-    </h1>
-    <h2 class="intro-msg">
-      Type the word of confusion in the box below and click the <strong>Search</strong> button to find out how to say what you mean around the world!
-    </h2>  
-  </div>
+
+  <div id="home">
+    <nav class="home-nav">
+      <img class="page2" src="assets/images/arrow_pencil_left.png" alt="About">
+    </nav>
+    <div class="intro">
+      <h1 class="intro-msg">
+        English-English Translator. 
+      </h1>
+      <h2 class="intro-msg">
+        Type the word of confusion in the box below and click the <strong>Search</strong> button to find out how to say what you mean around the world!
+      </h2>  
+    </div>
     <form id="form1">
-      <input type="text" id="word" class= "form-control" />
+      <input type="text" id="word" class= "form-control" autofocus/>
       <button type="submit" class="btn">Search</button><br>
     </form>
     <ul id="words"></ul>
+  </div>  
+
+  <div id="about">
+    <nav class="about-nav">
+      <img class="page1" src="assets/images/arrow_pencil_left.png" alt="Back">
+    </nav>
+    <div class="about">
+      <h1 class="about-heading">
+        About the English Translator
+      </h1>
+      <p class="about-text">
+        This app was borne out of years of frustrating conversations as a transplant from Jamaica to the United States. After learning to code, I knew I wanted to build a tool that would help others in similar straits navigate the strange and unexpected conundrum of speaking English in an English-speaking country that is not your own. I hope this app helps each and every person who uses it. If you have any suggestions on how to make this app better, please send me an <a class="about-link" href="mailto:burgedenise@gmail.com">email</a>!
+      </p>
+
+      <h3>
+        Other Details
+      </h4>
+      <ul class="ul-details">
+        <li>
+          The font for this app is called Helsinki XXL and comes free of cost from <a class="about-link" href="http://www.ludwigtype.de/helsinkiforfree">LudwigType</a>.
+        </li>
+        <li>
+          This background is downloaded free from <a class="about-link" href="http://www.subtlepatterns.com">Subtle Patterns</a>.
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <script src="assets/javascripts/lib/jquery.js"></script>
   <script src="assets/javascripts/lib/jquery-ui.min.js"></script>
   <script src="assets/javascripts/lib/underscore.js"></script>
