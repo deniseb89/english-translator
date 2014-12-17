@@ -1,0 +1,40 @@
+<div class="error"></div>
+<script type="text/template" id="word-template">
+  <li>
+    <%= american %> (American)
+  </li> 
+  <li>
+    <%= british %> (British)
+  </li>
+  <li>
+    <%= australian %> (Australian)
+  </li>
+  <li>
+    <%= southAfrican %> (South African)
+  </li>
+  <li>
+    <%= jamaican %> (Jamaican)
+  </li><br>
+</script>
+<nav>
+  <a href="about.html">About</a>
+</nav>
+<div class="intro">
+  <h1 class="intro-msg">
+    English-English Translator. 
+  </h1>
+  <h2 class="intro-msg">
+    Type the word of confusion in the box below and click the <strong>Search</strong> button to find out how to say what you mean around the world!
+  </h2>  
+</div>
+  <form id="form1">
+    <input type="text" id="word" class= "form-control" />
+    <button type="submit" class="btn">Search</button><br>
+  </form>
+  <ul id="words"></ul>
+<script src="assets/javascripts/lib/jquery.js"></script>
+<script src="assets/javascripts/lib/jquery-ui.min.js"></script>
+<script src="assets/javascripts/lib/underscore.js"></script>
+<script src="assets/javascripts/lib/backbone.js"></script>
+<script src="assets/javascripts/app.js"></script>
+<script src="assets/javascripts/cool.js"></script>

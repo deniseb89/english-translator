@@ -36,11 +36,15 @@ var WordListView = Backbone.View.extend({
 $(function() {
   $('#form1').on('submit', function(e) {
     e.preventDefault();
-    var word = $("#word").val();
+    var word = $("#word").val().toLowerCase();
     wordList = new WordList(word);
     wordList.fetch().done(function(data){
       wordListView = new WordListView({ collection: wordList });
       wordListView.render();
+      if (wordListView.collection.length == 0) {
+        invalid();
+      };
+      $("#word").val(""); 
     });
-  })
+  });
 });
