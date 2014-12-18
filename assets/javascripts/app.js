@@ -41,6 +41,7 @@ $(function() {
     wordList.fetch().done(function(data){
       wordListView = new WordListView({ collection: wordList });
       wordListView.render();
+      $(".suggest-div").slideUp(750);
       if (wordListView.collection.length == 0) {
         invalid();
       };

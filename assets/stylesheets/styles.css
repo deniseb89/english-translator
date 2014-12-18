@@ -27,7 +27,7 @@ body {
 }
 
 #form1 {
-  margin: 10px auto;
+  margin: 10px auto 0;
   width: 70%;
   padding-left: 0;
 }
@@ -172,6 +172,28 @@ h3 {
 
 img { 
   transition: all .5s ease;
+}
+
+.suggest-div {
+  width: 700px;
+  margin: 0 0 0 194px;
+  height: 93px;
+  overflow-y: scroll; 
+}
+
+.suggestions {
+  margin-top: 0;
+  list-style-type: none;
+  width: 689px;
+  padding-top: 0px;
+  padding-left: 12px;
+  background-color: silver;
+}
+
+.suggestions li {
+  text-align: left;
+  font-size: 18px;
+  padding-left: 
 }
 
 

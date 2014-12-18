@@ -5,6 +5,13 @@ function hideElems() {
   fades();
 }
 
+function hideIntro() {
+  $('.btn').on("click", function() {
+    $(".intro").slideUp(750);
+  });
+}
+
+
 function fades(){
   $("h1").fadeIn(1000, function() {
     $("h2").fadeIn(2500, function() {
@@ -40,12 +47,40 @@ function invalid() {
 }
 
 // AUTOCOMPLETE
-// $("#word").autocomplete({
-//   appendTo: "#form1",
-//   delay: 500,
-//   minLength: 3,
-//   source: "http://english-english-api.herokuapp.com/api/words"
-// })
+function autocompleteSearchQuery() {
+  var $searchField = $('#word');
+  var $suggestions = $('.suggestions');
+  $searchField.on('keyup', function() {
+  var queryString = $searchField.val();
+    $.ajax({
+      method: 'GET',
+      url: 'http://english-english-api.herokuapp.com/api/words/' + queryString,
+      dataType: 'JSON',
+      // data: {query: queryString},
+      success: function(data) {
+        $suggestions.empty();
+        data.forEach(function(object) {
+          for(var key in object) {
+            var len = queryString.length;
+            if (queryString == object[key].slice(0, len)) {
+              var $suggestionNode = $('<li>').text(object[key]);
+              $suggestions.append($suggestionNode);
+            };
+          }
+        });
+        $(".suggest-div").slideDown(750);
+      }
+    });
+  });
+}
+
+function toggleAutocomplete() {
+  $("#word").on('click', function() {
+    $(".suggestions").empty();
+    autocompleteSearchQuery();
+  });
+
+}
 
 // DANCING ARROWS
 $('.page2').on('mouseover', function() {
@@ -83,10 +118,11 @@ $('.page1').on('click', function() {
   }, 1000);
 });
 
+console.log("I'm a console log and if dont show up something is wrong")
+
 // ON PAGE LOAD
 $(function(){
   hideElems();
-  $('.btn').on("click", function() {
-    $(".intro").slideUp(750);
-    });
+  hideIntro();
+  toggleAutocomplete();
 });
