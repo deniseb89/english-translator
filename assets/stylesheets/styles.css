@@ -34,6 +34,7 @@ body {
 
 #word {
   font-size: 18px;
+  margin: 0 13px;
 }
 
 .form-control {
