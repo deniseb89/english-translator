@@ -33,7 +33,7 @@ var WordListView = Backbone.View.extend({
   }
 });
 
-$(function() {
+function fireworks() {
   $('#form1').on('submit', function(e) {
     e.preventDefault();
     var word = $("#word").val().toLowerCase();
@@ -43,9 +43,13 @@ $(function() {
       wordListView.render();
       $(".suggest-div").slideUp(750);
       if (wordListView.collection.length == 0) {
-        invalid();
+        flash();
       };
       $("#word").val(""); 
     });
   });
+}
+
+$(function() {
+  fireworks();
 });

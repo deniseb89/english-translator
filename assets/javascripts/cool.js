@@ -28,6 +28,7 @@ function moveUp() {
 
 // VALIDATION
 function flash() {
+  invalid();
   var $word = $("#word").val();
   var $error = $('.error');
   $error
@@ -35,49 +36,52 @@ function flash() {
     .hide()
     .slideToggle("slow", function(){
       setTimeout(function(){
-          $error.slideToggle("slow", function(){
-            $error.remove();
-          });
+        $error.slideToggle("slow", function(){
+          $error.hide(resetColors());
+        });
       }, 3000);
     });
+    
   }
 
 function invalid() {
   $("#word").css('border-color', 'red')
             .effect("shake");
-  flash();
-  resetColors();
 }
 
 function resetColors() {
-  $("#word").css('border-color', 'blue');
+  $("#word").css('border-color', '#66afe9');
 }
 
 // AUTOCOMPLETE
 function autocompleteSearchQuery() {
   var $searchField = $('#word');
   var $suggestions = $('.suggestions');
-  $searchField.on('keyup', function() {
-  var queryString = $searchField.val();
-    $.ajax({
-      method: 'GET',
-      url: 'http://english-english-api.herokuapp.com/api/words/' + queryString,
-      dataType: 'JSON',
-      // data: {query: queryString},
-      success: function(data) {
-        $suggestions.empty();
-        data.forEach(function(object) {
-          for(var key in object) {
-            var len = queryString.length;
-            if (queryString == object[key].slice(0, len)) {
-              var $suggestionNode = $('<li>').text(object[key]);
-              $suggestions.append($suggestionNode);
-            };
+  $searchField.on('keyup', function(ev) {
+    if(ev.keyCode != 13) {
+      var queryString = $searchField.val();
+        $.ajax({
+          method: 'GET',
+          url: 'http://english-english-api.herokuapp.com/api/words/' + queryString,
+          dataType: 'JSON',
+          // data: {query: queryString},
+          success: function(data) {
+            $suggestions.empty();
+            data.forEach(function(object) {
+              for(var key in object) {
+                var len = queryString.length;
+                if (queryString == object[key].slice(0, len)) {
+                  var $suggestionNode = $('<li>').text(object[key]);
+                  $suggestions.append($suggestionNode);
+                };
+              }
+            });
+            $(".suggest-div").slideDown(750);
           }
         });
-        $(".suggest-div").slideDown(750);
-      }
-    });
+    } else {
+      $(".suggest-div").slideUp(750);
+    }
   });
 }
 
@@ -86,7 +90,16 @@ function toggleAutocomplete() {
     $(".suggestions").empty();
     autocompleteSearchQuery();
   });
+}
 
+function onEnter() {
+  $("#word").keypress(function(ev) {
+    if(ev.keyCode == 13) {
+      // $(".suggestions").empty();
+      // autocompleteSearchQuery();
+      $(".suggest-div").hide();
+    }
+  });
 }
 
 // DANCING ARROWS
@@ -132,4 +145,5 @@ $(function(){
   hideElems();
   hideIntro();
   toggleAutocomplete();
+  // onEnter();
 });
