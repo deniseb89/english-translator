@@ -1,19 +1,19 @@
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .intro {
     width: 100%;
     margin: auto;
-    margin-top: 25px;
+    margin-top: 5%;
   }
   h2 {
     font-size: 100%;
   }
   #form1 {
-    margin: 10px auto;
+    margin: 1% auto;
     width: 100%;
     padding-left: 0;
   }
   #word {
-    font-size: 14px;
+    font-size: 1em;
   }
   .form-control {
     display: inline-block;
@@ -61,5 +61,25 @@
     text-align: center;
     font-size: 16px;
     line-height: 1.2;
+  }
+  .suggestions {
+    margin-top: 0;
+    margin-left: 1%;
+    list-style-type: none;
+    width: 96%;
+    padding-top: 0;
+    padding-left: 2%;
+    background-color: silver;
+  }
+  .suggest-div {
+    width: 75%;
+    margin: 0 0 0 1%;
+    height: 95px;
+    overflow-y: scroll;
+  }
+  .suggestions li {
+    text-align: left;
+    font-size: 18px;
+    padding-left: 
   }
 }

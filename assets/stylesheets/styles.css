@@ -19,7 +19,7 @@ body {
 .intro {
   width: 60%;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 5%;
 }
 
 .intro-msg {
@@ -33,13 +33,13 @@ body {
 }
 
 #word {
-  font-size: 18px;
-  margin: 0 13px;
+  font-size: 1em;
+  margin: 0 1%;
 }
 
 .form-control {
   display: inline-block;
-  width: 80%;
+  width: 70%;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -69,9 +69,9 @@ body {
   background-color: steelblue;
   border-color: #2e6da4;
   cursor: pointer;
-  border-radius: 4px;
-  padding: 7px;
-  font-size: 18px;
+  border-radius: 2%;
+  padding: 1%;
+  font-size: 1em;
 }
 
 .btn:hover,
@@ -85,8 +85,8 @@ body {
 #words {
   padding-left: 0;
   list-style: none;
-  width: 40%;
-  margin: 20px auto 0 auto;
+  width: 50%;
+  margin: 2% auto 0 auto;
 }
 
 .list-unstyled {
@@ -175,18 +175,19 @@ img {
 }
 
 .suggest-div {
-  width: 700px;
-  margin: 0 0 0 194px;
-  height: 93px;
+  width: 65%;
+  margin: 0 0 0 15%;
+  height: 95px;
   overflow-y: scroll; 
 }
 
 .suggestions {
   margin-top: 0;
+  margin-left: 1%;
   list-style-type: none;
-  width: 689px;
-  padding-top: 0px;
-  padding-left: 12px;
+  width: 87%;
+  padding-top: 0;
+  padding-left: 2%;
   background-color: silver;
 }
 

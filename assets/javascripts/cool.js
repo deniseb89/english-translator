@@ -15,7 +15,9 @@ function hideIntro() {
 function fades(){
   $("h1").fadeIn(1000, function() {
     $("h2").fadeIn(2500, function() {
-      $("#form1").fadeIn(1500);
+      $("#form1").fadeIn(1500, function() {
+        $("#word").focus();
+      });
     });
   });
 }
@@ -44,6 +46,11 @@ function invalid() {
   $("#word").css('border-color', 'red')
             .effect("shake");
   flash();
+  resetColors();
+}
+
+function resetColors() {
+  $("#word").css('border-color', 'blue');
 }
 
 // AUTOCOMPLETE
