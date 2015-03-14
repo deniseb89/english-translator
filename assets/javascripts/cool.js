@@ -41,7 +41,6 @@ function flash() {
         });
       }, 3000);
     });
-    
   }
 
 function invalid() {

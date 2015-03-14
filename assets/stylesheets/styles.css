@@ -76,7 +76,7 @@ body {
 
 .btn:hover,
 .btn:focus,
-.btn:active{
+.btn:active {
   color: #fff;
   background-color: #286090;
   border-color: #204d74;
@@ -197,4 +197,10 @@ img {
   padding-left: 
 }
 
+/*position: fixed;
+  width: 70%;
+  height: 10px;
+  background-color: chartreuse;
+  margin: 0 auto;
+}*/
 
