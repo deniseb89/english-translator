@@ -1,111 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="translator">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>English Translator</title>
-  <link href="assets/stylesheets/styles.css" rel="stylesheet">
-  <link rel="stylesheet" media="(max-width: 600px)" href="assets/stylesheets/small-smartphone.css" />
-  <link rel="stylesheet" href="assets/stylesheets/jquery-ui.min.css">
-  <link rel="stylesheet" href="assets/stylesheets/jquery-ui.structure.min.css">
-  <link rel="stylesheet" href="assets/stylesheets/jquery-ui.theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="assets/javascripts/app.js"></script>
+  <link rel="stylesheet" href="assets/stylesheets/styles.css">
 </head>
 <body>
-  <div class="error"></div>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-60737494-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
-
-  <script type="text/template" id="word-template">
-    <li>
-      <%= american %> (American)
-    </li> 
-    <li>
-      <%= british %> (British)
-    </li>
-    <li>
-      <%= australian %> (Australian)
-    </li>
-    <li>
-      <%= southAfrican %> (South African)
-    </li>
-    <li>
-      <%= jamaican %> (Jamaican)
-    </li><br>
-  </script>
-
-  <div id="home">
-    <nav class="home-nav">
-      <img class="page2" src="assets/images/arrow_pencil_left.png" alt="About">
-    </nav>
-    <div class="intro">
-      <h1 class="intro-msg">
-        English-English Translator. 
-      </h1>
-      <h2 class="intro-msg">
-        Type the word of confusion in the box below and click the <strong>Search</strong> button to find out how to say what you mean around the world!
-      </h2>  
-    </div>
-<!-- =======
-  <nav><a href="about.html">About</a></nav>
-  <div class="intro">
-    <h1 class="intro-msg">
-      English-English Translator. 
-    </h1>
-    <h2 class="intro-msg">
-      Type the word of confusion in the box below and click the <strong>Search</strong> button to find out how to say what you mean around the world!
-    </h2>  
-  </div> -->
-
-    <form id="form1">
-      <input type="text" id="word" class= "form-control"/>
-      <button type="submit" class="btn">Search</button><br>
+  <div ng-controller="SearchController">
+    <form novalidate>
+      <input type="text" ng-model="query"/>
+      <input type="submit" ng-click="search(word)" value="Search" />
     </form>
-    <div class="suggest-div">
-      <ul class="suggestions"></ul>
-    </div>  
-    <ul id="words"></ul>
-  </div>  
-
-  <div id="about">
-    <nav class="about-nav">
-      <img class="page1" src="assets/images/arrow_pencil_left.png" alt="Back">
-    </nav>
-    <div class="about">
-      <h1 class="about-heading">
-        About the English Translator
-      </h1>
-      <p class="about-text">
-        This app was borne out of years of frustrating conversations as a transplant from Jamaica to the United States. After learning to code, I knew I wanted to build a tool that would help others in similar straits navigate the strange and unexpected conundrum of speaking English in an English-speaking country that is not your own. I hope this app helps each and every person who uses it. If you have any suggestions on how to make this app better, please send me an <a class="about-link" href="mailto:burgedenise@gmail.com">email</a>!
-      </p>
-
-      <h3>
-        Other Details
-      </h4>
-      <ul class="ul-details">
-        <li>
-          The font for this app is called Helsinki XXL and comes free of cost from <a class="about-link" href="http://www.ludwigtype.de/helsinkiforfree">LudwigType</a>.
-        </li>
-        <li>
-          This background is downloaded free from <a class="about-link" href="http://www.subtlepatterns.com">Subtle Patterns</a>.
+    <div ng-controller="WordDisplay as words">
+      <ul>
+        <li ng-repeat="word in words | filter:query">
+          <span>{{word.country}}</span>
+          <span>{{word.word}}</span>
         </li>
       </ul>
     </div>
   </div>
-
-  <script src="assets/javascripts/lib/jquery.js"></script>
-  <script src="assets/javascripts/lib/jquery-ui.min.js"></script>
-  <script src="assets/javascripts/lib/underscore.js"></script>
-  <script src="assets/javascripts/lib/backbone.js"></script>
-  <script src="assets/javascripts/app.js"></script>
-  <script src="assets/javascripts/cool.js"></script>
 </body>
 </html>
