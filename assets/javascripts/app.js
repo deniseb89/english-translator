@@ -5,8 +5,9 @@ app.controller('WordDisplay', ['$scope', '$http', function($scope, $http){
     $scope.wordList = data;
   });
 
+  $scope.search = function(query) {
+    $http.get('http://english-english-api.herokuapp.com/api/words/' + query).success(function(data, status, headers, config) {
+      $scope.wordList = data;
+    });
+  }
 }]);
-
-app.controller('SearchController', function(){
-
-});

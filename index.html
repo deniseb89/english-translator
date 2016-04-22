@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="assets/stylesheets/styles.css">
 </head>
 <body>
-  <div ng-controller="SearchController">
+  <div ng-controller="WordDisplay">
     <form novalidate>
       <input type="text" ng-model="query"/>
       <input type="submit" ng-click="search(query)" value="Search" />
     </form>
-    <div ng-controller="WordDisplay">
+    <div>
       <ul ng-repeat="words in wordList">
         <li ng-repeat="(country, word) in words">
           <span>{{country}}</span> > <span>{{word}}</span>
