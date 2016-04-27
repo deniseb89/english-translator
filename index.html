@@ -11,6 +11,7 @@
     <form novalidate>
       <input type="text" ng-model="query"/>
       <input type="submit" ng-click="search(query)" value="Search" />
+      <input type="submit" ng-click="random()" value="Random" />
     </form>
     <div>
       <ul ng-repeat="words in wordList">
