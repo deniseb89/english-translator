@@ -205,10 +205,11 @@ img {
 }*/
 .container{
 	padding: 15px;
+	background-color: #F3F2EC;
 }
 .nav{
 	background-color: #1AADAD;
-	color: #D6E1CB;
+	color: #f0efe7;
 	font-family: 'Righteous', cursive;
 }
 .nav h2{

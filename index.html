@@ -11,19 +11,34 @@
 	<div class="nav">
 	  <h2>English Around the World</h2>
 	</div>
+	
   <div class="container" ng-controller="WordDisplay">
+	  <div>
+		<p>Settings</p>
+		<form novalidate id="settings">
+			<label>Choose your english based on your country</label>
+			<select>
+				<option value="American">American</option>
+				<option value="British">British</option>
+				<option value="Austrialian">Austrialian</option>
+				<option value="South African">South African</option>
+				<option value="Jamaican">Jamaican</option>
+			</select>
+		</form>
+	</div>
     <form novalidate>
-      <input id="search" placeholder="search words" type="text" ng-model="query"/>
-      <input type="submit" ng-click="search(query)" value="Search" />
-      <input type="submit" ng-click="random()" value="Random" />
+      <input id="search" ng-keypress="$event.keyCode == 13  ? search(query): null " placeholder="search words" type="text" ng-model="query"/>
+<!--      <input type="submit" ng-click="search(query)" value="Search" />-->
+<!--      <input type="submit" ng-click="random()" value="Random" />-->
     </form>
 	
     <div>
-      <ul ng-repeat="words in wordList">
+      <ul ng-show="hasResults" ng-repeat="words in wordList">
         <li ng-repeat="(country, word) in words">
           <span>{{country}}</span> > <span>{{word}}</span>
         </li>
       </ul>
+		<p ng-show="!hasResults">"There were no results found. Please refine your search"</p>
     </div>
   </div>
 </body>
