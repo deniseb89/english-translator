@@ -5,14 +5,19 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script src="assets/javascripts/app.js"></script>
   <link rel="stylesheet" href="assets/stylesheets/styles.css">
+	<link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div ng-controller="WordDisplay">
+	<div class="nav">
+	  <h2>English Around the World</h2>
+	</div>
+  <div class="container" ng-controller="WordDisplay">
     <form novalidate>
-      <input type="text" ng-model="query"/>
+      <input id="search" placeholder="search words" type="text" ng-model="query"/>
       <input type="submit" ng-click="search(query)" value="Search" />
       <input type="submit" ng-click="random()" value="Random" />
     </form>
+	
     <div>
       <ul ng-repeat="words in wordList">
         <li ng-repeat="(country, word) in words">

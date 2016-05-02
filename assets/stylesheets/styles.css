@@ -1,7 +1,7 @@
 body {
-  background: url('../images/tweed/tweed.png');
-  color: lemonchiffon; 
-  font-family: 'HelsinkiXXL', Fallback, sans-serif;
+/*  background: url('../images/tweed/tweed.png');*/
+/*  color: lemonchiffon; */
+/*  font-family: 'HelsinkiXXL', Fallback, sans-serif;*/
 }
 
 @font-face {
@@ -203,4 +203,26 @@ img {
   background-color: chartreuse;
   margin: 0 auto;
 }*/
-
+.container{
+	padding: 15px;
+}
+.nav{
+	background-color: #1AADAD;
+	color: #D6E1CB;
+	font-family: 'Righteous', cursive;
+}
+.nav h2{
+	margin: 0;
+	padding: 8px;
+	text-align: center;
+}
+body{
+	margin: 0;
+	padding: 0;
+}
+#search{
+	height: 50px;
+	font-size: 40px;
+	width: 100%;
+	display: block;
+}
