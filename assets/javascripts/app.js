@@ -1,4 +1,4 @@
-var app = angular.module('translator', []);
+var app = angular.module('translator', ['ngCookies']);
 
 app.controller('WordDisplay', ['$scope', '$http', function($scope, $http){
   $http.get('http://english-english-api.herokuapp.com/api/words')
@@ -22,4 +22,16 @@ app.controller('WordDisplay', ['$scope', '$http', function($scope, $http){
          });
   }
 
+}]);
+
+app.controller('OriginCountry', ['$scope', '$cookies', function($scope, $cookies){
+  if($cookies.get('country')) {
+    $scope.ask = true;
+  }
+  $scope.default = function(country) {
+    var expiration = new Date();
+        expiration.setDate(expiration.getDate() + 90);
+    $cookies.put('country', country, {expires: expiration});
+    $scope.ask = true;
+  };
 }]);
