@@ -10,8 +10,8 @@
   <div ng-controller="WordDisplay">
     <form novalidate>
       <input type="text" ng-model="query"/>
-      <input type="submit" ng-click="search(query)" value="Search" />
-      <input type="submit" ng-click="random()" value="Random" />
+      <button type="button" ng-click="search(query)" name="search">Search</button>
+      <button type="button" ng-click="random()" name="random">Random</button>
     </form>
     <div>
       <ul ng-repeat="words in wordList">

@@ -11,12 +11,15 @@ app.controller('WordDisplay', ['$scope', '$http', function($scope, $http){
          .success(function(data, status, headers, config) {
             $scope.wordList = data;
          });
-  }
+  };
 
   $scope.random = function() {
     $http.get('http://english-english-api.herokuapp.com/api/words/random')
          .success(function(data, status, headers, config) {
-            $scope.wordList = data;
+           var array = [];
+           array.push(data)
+            $scope.wordList = array;
          });
   }
+
 }]);
