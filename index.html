@@ -3,11 +3,13 @@
 <head>
   <title>English Translator</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.js"></script>
   <script src="assets/javascripts/app.js"></script>
   <link rel="stylesheet" href="assets/stylesheets/styles.css">
 	<link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<<<<<<< HEAD
 	<div class="nav">
 	  <h2>English Around the World</h2>
 	</div>
@@ -30,6 +32,27 @@
       <input id="search" ng-keypress="$event.keyCode == 13  ? search(query): null " placeholder="search words" type="text" ng-model="query"/>
 <!--      <input type="submit" ng-click="search(query)" value="Search" />-->
 <!--      <input type="submit" ng-click="random()" value="Random" />-->
+=======
+  <div ng-controller="OriginCountry">
+    <form ng-hide="ask" no-validate>
+      <label for="">Please select your country below.</label>
+      <span>If your country is not listed, select the one whose English is most like yours.</span>
+      <select ng-model="country">
+        <option value="american">America</option>
+        <option value="british">England</option>
+        <option value="australian">Australia</option>
+        <option value="southAfrican">South Africa</option>
+        <option value="jamaican">Jamaica</option>
+      </select>
+      <input type="submit" ng-click="default(country)" value="Submit"/>
+    </form>
+  </div>
+  <div ng-controller="WordDisplay">
+    <form novalidate>
+      <input type="text" ng-model="query"/>
+      <button type="button" ng-click="search(query)" name="search">Search</button>
+      <button type="button" ng-click="random()" name="random">Random</button>
+>>>>>>> upstream/master
     </form>
 	
     <div>
