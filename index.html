@@ -9,30 +9,12 @@
 	<link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<<<<<<< HEAD
 	<div class="nav">
 	  <h2>English Around the World</h2>
 	</div>
 	
   <div class="container" ng-controller="WordDisplay">
-	  <div>
-		<p>Settings</p>
-		<form novalidate id="settings">
-			<label>Choose your english based on your country</label>
-			<select>
-				<option value="American">American</option>
-				<option value="British">British</option>
-				<option value="Austrialian">Austrialian</option>
-				<option value="South African">South African</option>
-				<option value="Jamaican">Jamaican</option>
-			</select>
-		</form>
-	</div>
-    <form novalidate>
-      <input id="search" ng-keypress="$event.keyCode == 13  ? search(query): null " placeholder="search words" type="text" ng-model="query"/>
-<!--      <input type="submit" ng-click="search(query)" value="Search" />-->
-<!--      <input type="submit" ng-click="random()" value="Random" />-->
-=======
+
   <div ng-controller="OriginCountry">
     <form ng-hide="ask" no-validate>
       <label for="">Please select your country below.</label>
@@ -49,10 +31,9 @@
   </div>
   <div ng-controller="WordDisplay">
     <form novalidate>
-      <input type="text" ng-model="query"/>
-      <button type="button" ng-click="search(query)" name="search">Search</button>
+      <input id="search" ng-keypress="$event.keyCode == 13  ? search(query): null " placeholder="search words" type="text" ng-model="query"/>
+      <!--<button type="button" ng-click="search(query)" name="search">Search</button>-->
       <button type="button" ng-click="random()" name="random">Random</button>
->>>>>>> upstream/master
     </form>
 	
     <div>
@@ -64,5 +45,6 @@
 		<p ng-show="!hasResults">"There were no results found. Please refine your search"</p>
     </div>
   </div>
+	</div>
 </body>
 </html>

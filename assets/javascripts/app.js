@@ -12,38 +12,24 @@ app.controller('WordDisplay', ['$scope', '$http', function($scope, $http){
 	  if(query != null){
 		 $http.get('http://english-english-api.herokuapp.com/api/words/' + query)
          .success(function(data, status, headers, config) {
-<<<<<<< HEAD
 			 $scope.hasResults = true;
 			 console.log(data);
-			if(data.length > 0){
+			if(data.length != 0){
 				$scope.wordList = data;
 			}
-         }); 
+     }); 
 	  }
   }
-=======
-            $scope.wordList = data;
-         });
-  };
->>>>>>> upstream/master
+
 
   $scope.random = function() {
     $http.get('http://english-english-api.herokuapp.com/api/words/random')
          .success(function(data, status, headers, config) {
-<<<<<<< HEAD
-			console.log(data)
-            $scope.wordList = data;
-         });
-  }
-  
-  
-=======
            var array = [];
            array.push(data)
             $scope.wordList = array;
          });
-  }
-
+    }
 }]);
 
 app.controller('OriginCountry', ['$scope', '$cookies', function($scope, $cookies){
@@ -56,5 +42,4 @@ app.controller('OriginCountry', ['$scope', '$cookies', function($scope, $cookies
     $cookies.put('country', country, {expires: expiration});
     $scope.ask = true;
   };
->>>>>>> upstream/master
 }]);
