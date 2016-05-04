@@ -13,7 +13,7 @@
 	  <h2>English Around the World</h2>
 	</div>
 	
-  <div class="container" ng-controller="WordDisplay">
+  <div class="container">
 
   <div ng-controller="OriginCountry">
     <form ng-hide="ask" no-validate>
@@ -33,6 +33,7 @@
     <form novalidate>
       <input id="search" ng-keypress="$event.keyCode == 13  ? search(query): null " placeholder="search words" type="text" ng-model="query"/>
       <!--<button type="button" ng-click="search(query)" name="search">Search</button>-->
+
       <button type="button" ng-click="random()" name="random">Random</button>
     </form>
 	
