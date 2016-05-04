@@ -14,30 +14,26 @@
 	</div>
 	
   <div class="container">
-
-  <div ng-controller="OriginCountry">
-    <form ng-hide="ask" no-validate>
-      <label for="">Please select your country below.</label>
-      <span>If your country is not listed, select the one whose English is most like yours.</span>
-      <select ng-model="country">
-        <option value="american">America</option>
-        <option value="british">England</option>
-        <option value="australian">Australia</option>
-        <option value="southAfrican">South Africa</option>
-        <option value="jamaican">Jamaica</option>
-      </select>
-      <input type="submit" ng-click="default(country)" value="Submit"/>
-    </form>
-  </div>
+    <div ng-controller="OriginCountry">
+      <form ng-hide="ask" no-validate>
+        <label for="">Please select your country below.</label>
+        <span>If your country is not listed, select the one whose English is most like yours.</span>
+        <select ng-model="country">
+          <option value="american">America</option>
+          <option value="british">England</option>
+          <option value="australian">Australia</option>
+          <option value="southAfrican">South Africa</option>
+          <option value="jamaican">Jamaica</option>
+        </select>
+        <input type="submit" ng-click="default(country)" value="Submit"/>
+      </form>
+    </div>
   <div ng-controller="WordDisplay">
     <form novalidate>
       <input id="search" ng-keypress="$event.keyCode == 13  ? search(query): null " placeholder="search words" type="text" ng-model="query"/>
       <!--<button type="button" ng-click="search(query)" name="search">Search</button>-->
-
       <button type="button" ng-click="random()" name="random">Random</button>
     </form>
-	
-    <div>
       <ul ng-show="hasResults" ng-repeat="words in wordList">
         <li ng-repeat="(country, word) in words">
           <span>{{country}}</span> > <span>{{word}}</span>
@@ -46,6 +42,5 @@
 		<p ng-show="!hasResults">"There were no results found. Please refine your search"</p>
     </div>
   </div>
-	</div>
 </body>
 </html>

@@ -11,7 +11,7 @@ app.controller('WordDisplay', ['$scope', '$http', function($scope, $http){
   $scope.search = function(query) {
 	  if(query != null){
 		 $http.get('http://english-english-api.herokuapp.com/api/words/' + query)
-         .success(function(data, status, headers, config) {
+     .success(function(data, status, headers, config) {
 			 $scope.hasResults = true;
 			 console.log(data);
 			if(data.length != 0){
@@ -23,12 +23,15 @@ app.controller('WordDisplay', ['$scope', '$http', function($scope, $http){
 
   $scope.random = function() {
     $http.get('http://english-english-api.herokuapp.com/api/words/random')
-         .success(function(data, status, headers, config) {
-           var array = [];
-           array.push(data)
-            $scope.wordList = array;
-         });
-    }
+    .success(function(data, status, headers, config) {
+			$scope.hasResults = true;      
+      var array = [];
+      console.log(data);
+      array.push(data)
+      console.log(array);
+      $scope.wordList = array;
+    });
+  }
 }]);
 
 app.controller('OriginCountry', ['$scope', '$cookies', function($scope, $cookies){
@@ -37,7 +40,7 @@ app.controller('OriginCountry', ['$scope', '$cookies', function($scope, $cookies
   }
   $scope.default = function(country) {
     var expiration = new Date();
-        expiration.setDate(expiration.getDate() + 90);
+    expiration.setDate(expiration.getDate() + 90);
     $cookies.put('country', country, {expires: expiration});
     $scope.ask = true;
   };
