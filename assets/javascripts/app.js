@@ -6,22 +6,19 @@ app.controller('WordDisplay', ['$scope', '$http', function($scope, $http){
           $scope.wordList = data;
        });
 
-  $scope.search = function(query) {
+  $scope.search = function(query = 'random') {
     $http.get('http://english-english-api.herokuapp.com/api/words/' + query)
          .success(function(data, status, headers, config) {
-            $scope.wordList = data;
+           if (typeof data === 'object') {
+             var array = [];
+             array.push(data)
+              $scope.wordList = array;
+           }
+           else {
+             $scope.wordList = data;
+           }
          });
-  };
-
-  $scope.random = function() {
-    $http.get('http://english-english-api.herokuapp.com/api/words/random')
-         .success(function(data, status, headers, config) {
-           var array = [];
-           array.push(data)
-            $scope.wordList = array;
-         });
-  }
-
+       };
 }]);
 
 app.controller('OriginCountry', ['$scope', '$cookies', function($scope, $cookies){
