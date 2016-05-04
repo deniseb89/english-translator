@@ -27,18 +27,21 @@
         </select>
         <input type="submit" ng-click="default(country)" value="Submit"/>
       </form>
+      <h2>Country: {{country}}</h2>
     </div>
   <div ng-controller="WordDisplay">
     <form novalidate>
       <input id="search" ng-keypress="$event.keyCode == 13  ? search(query): null " placeholder="search words" type="text" ng-model="query"/>
       <!--<button type="button" ng-click="search(query)" name="search">Search</button>-->
-      <button type="button" ng-click="random()" name="random">Random</button>
+      <button class="btn" type="button" ng-click="random()" name="random">Random</button>
     </form>
-      <ul ng-show="hasResults" ng-repeat="words in wordList">
-        <li ng-repeat="(country, word) in words">
-          <span>{{country}}</span> > <span>{{word}}</span>
+      <div class="wordListContainer">
+        <ul class="wordList" ng-show="hasResults" ng-repeat="words in wordList">
+        <li ng-class="{'odd': $odd, 'even': $even}" ng-repeat="(country, word) in words">
+          <span>{{country}}</span> <span>&#8594; </span <span>{{word}}</span>
         </li>
       </ul>
+    </div>
 		<p ng-show="!hasResults">"There were no results found. Please refine your search"</p>
     </div>
   </div>
