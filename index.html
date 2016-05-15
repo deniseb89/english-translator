@@ -19,7 +19,7 @@
         <label for="">Please select your country below.</label>
         <span>If your country is not listed, select the one whose English is most like yours.</span>
         <select ng-model="country">
-          <option value="american">America</option>
+          <option value="american">United States</option>
           <option value="british">England</option>
           <option value="australian">Australia</option>
           <option value="southAfrican">South Africa</option>
@@ -27,11 +27,10 @@
         </select>
         <input type="submit" ng-click="default(country)" value="Submit"/>
       </form>
-      <h2>Country: {{country}}</h2>
     </div>
   <div ng-controller="WordDisplay">
     <form novalidate>
-      <input id="search" ng-keypress="$event.keyCode == 13  ? search(query): null " placeholder="search words" type="text" ng-model="query"/>
+      <input id="search" ng-keypress="$event.keyCode == 13 ? search(query): null" placeholder="Type a word" type="text" ng-model="query"/>
       <button class="btn" type="button" ng-click="random()" name="random">Random</button>
     </form>
       <div class="wordListContainer">
@@ -41,7 +40,7 @@
         </li>
       </ul>
     </div>
-		<p ng-show="!hasResults">"There were no results found. Please refine your search"</p>
+		<p ng-show="!hasResults">There were no results found. Please refine your search</p>
     </div>
   </div>
 </body>
