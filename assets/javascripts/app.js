@@ -1,17 +1,17 @@
 var app = angular.module('translator', ['ngCookies']);
 
 app.controller('WordDisplay', ['$scope', '$http', function($scope, $http){
-	$scope.hasResults = false;
+	$scope.hasResults = true;
 
   $scope.search = function(query) {
-	  if(query != null){
+	  if (query != null) {
 		 $http.get('http://english-english-api.herokuapp.com/api/words/' + query)
      .success(function(data, status, headers, config) {
 			 $scope.hasResults = true;
 			 console.log(data);
-			if(data.length != 0){
+			if (data.length != 0) {
 				$scope.wordList = data;
-			}else{
+			} else {
         $scope.message = true;
       }
      });
@@ -32,7 +32,7 @@ app.controller('WordDisplay', ['$scope', '$http', function($scope, $http){
 }]);
 
 app.controller('OriginCountry', ['$scope', '$cookies', function($scope, $cookies){
-  if($cookies.get('country')) {
+  if ($cookies.get('country')) {
     $scope.ask = true;
 
   }
